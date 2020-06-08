@@ -1,0 +1,29 @@
+* {
+    font-family: "Avenir Next", "Arial Narrow";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    color: white;
+}
+
+body {
+    background-color: #F1D1B5;
+}
+
+a.button {
+    border-radius: 15px;
+    padding: 10px;
+    color: white;
+    background-color: #F18C8E;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: xx-large;
+    padding: 20px;
+    transition: 1s;
+}
+
+a.button:hover {
+    background-color: #F0B7A4;
+    border-radius: 40px;
+}

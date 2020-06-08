@@ -1,0 +1,25 @@
+div #menu {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+div#menu > a.button {
+    margin: 20px;
+}
+
+div#potence {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+div#potence > img{
+    width: 250px;
+    height: 400px;
+}
