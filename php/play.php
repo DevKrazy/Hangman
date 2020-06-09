@@ -9,6 +9,7 @@ $random_description = explode(",", $words[$rand_index])[1];
 
 $_SESSION["word"] = $random_word;
 $_SESSION["description"] = $random_description;
+$_SESSION["current_word"] = "-------";
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +26,11 @@ $_SESSION["description"] = $random_description;
 <div id="header">
     <h1>Devinez le mot</h1>
     <h3>Indication : ...</h3>
+    <h1 id="word"><?php
+        echo($_SESSION["current_word"]);
+        ?></h1>
     <div id="potence">
-        <img src="../graphics/potence11.png" alt="potence">
+        <img src="../graphics/potence1.png" alt="potence">
     </div>
     <?php
     $idx = 1;
@@ -36,7 +40,7 @@ $_SESSION["description"] = $random_description;
             echo("</div><div class=\"letters\">");
         }
         $idx += 1;
-        echo("<img src=\"../graphics/".$letter.".png\" alt=\"lettre\">");
+        echo("<img id=\"".$letter."\" src=\"../graphics/".$letter.".png\" alt=\"lettre\">");
     }
     echo("</div>");
     ?>

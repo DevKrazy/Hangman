@@ -34,7 +34,8 @@ div.letters {
 div.letters > img {
     width: 60px;
     height: 60px;
-    padding: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 div.letters > img.clicked {
@@ -43,4 +44,10 @@ div.letters > img.clicked {
 
 div.letters > img:hover {
     opacity: 0.5;
+    transition: 0.5s;
+}
+
+h1#word {
+    font-size: 50px;
+    margin: 0px;
 }
