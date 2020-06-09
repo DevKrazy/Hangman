@@ -23,3 +23,24 @@ div#potence > img{
     width: 250px;
     height: 400px;
 }
+
+div.letters {
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+div.letters > img {
+    width: 60px;
+    height: 60px;
+    padding: 2px;
+}
+
+div.letters > img.clicked {
+    opacity: 0.5;
+}
+
+div.letters > img:hover {
+    opacity: 0.5;
+}
