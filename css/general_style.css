@@ -1,16 +1,13 @@
 * {
     font-family: "Avenir Next", "Arial Narrow";
 }
-
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
     color: white;
 }
-
 body {
     background-color: #F1D1B5;
 }
-
 a.button {
     border-radius: 15px;
     color: white;
@@ -21,7 +18,6 @@ a.button {
     font-size: xx-large;
     transition: 0.7s;
 }
-
 a.button:hover {
     padding-left: 50px;
     padding-right: 50px;

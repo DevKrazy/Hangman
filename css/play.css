@@ -5,12 +5,11 @@ div #menu {
     width: 100%;
     margin-bottom: 100px;
     text-align: center;
+    visibility: hidden;
 }
-
 div#menu > a.button {
     margin: 20px;
 }
-
 div#potence {
     display: block;
     margin: auto;
@@ -18,36 +17,45 @@ div#potence {
     width: 100%;
     text-align: center;
 }
-
 div#potence > img{
     width: 250px;
     height: 400px;
 }
-
 div.letters {
     display: block;
     margin: auto;
     width: 100%;
     text-align: center;
 }
-
 div.letters > img {
     width: 60px;
     height: 60px;
     padding-left: 3px;
     padding-right: 3px;
 }
-
 div.letters > img.clicked {
     opacity: 0.5;
 }
-
 div.letters > img:hover {
     opacity: 0.5;
     transition: 0.5s;
 }
-
-h1#word {
+h1#currentword {
     font-size: 50px;
     margin: 0px;
 }
+div#endgame > h2 {
+    display: inline;
+}
+div#endgame {
+    text-align: center;
+}
+h2#message {
+    visibility: hidden;
+}
+h2#word {
+    visibility: hidden;
+    color: #4f7197;
+}
+
+

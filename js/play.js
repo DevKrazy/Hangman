@@ -1,43 +1,65 @@
 window.onload = function() {
 
-    let currentWord = document.getElementById("word").innerHTML;
-    let fails = 1;
-    let gameState = -1; // -1 = en jeu, 0 = perdu et 1 = gagné
+    let currentWord = document.getElementById("currentword").innerHTML;
+    let menuTag = document.getElementById("menu");
+    let potenceId = 1;
+    let gameState = 1; // 1 en jeu; 0 terminé
 
     function onSuccess(request) {
-        let wordTag = document.getElementById("word");
-        wordTag.innerHTML = request.responseText;
+        let wordTag = document.getElementById("currentword");
+        let imgTag = document.querySelector("div#potence > img");
 
-        let imgTag = document.querySelector("div#potence > img")
+        wordTag.innerHTML = request.responseText;
 
         // On affiche la potence si l'utilisateur n'a pas découvert
         if (currentWord == request.responseText) {
-            fails += 1;
-            imgTag.src = "../graphics/potence" + fails + ".png";
+            potenceId += 1;
+            imgTag.src = "../graphics/potence" + potenceId + ".png";
         }
 
-        if (fails == 11) {
+        currentWord = request.responseText; // On met à jour le mot courant
+
+        let messageTag = document.getElementById("message");
+
+        // On vérifie si le jeu est éventuellement terminé
+        if (potenceId == 11) {
+            // On a perdu
             imgTag.src = "../graphics/lost.gif";
             gameState = 0;
-        }
 
-        // On met à jour le mot courant
-        currentWord = request.responseText;
+            messageTag.innerHTML = "On ne peut pas être bon partout... Cliquez pour révéler le mot : "
+            new simpleAjax("../php/getWord.php", "post", "", function (request) {
+                let wordTag = document.getElementById("word");
+                wordTag.style.visibility = "visible";
+                wordTag.onclick = function () {
+                    messageTag.innerHTML = "On ne peut pas être bon partout... Le mot était : ";
+                    wordTag.innerHTML = request.responseText;
+                }
+            }, onFailure);
+        }
 
         if (currentWord.includes("-") == false) {
             // On a gagné
             imgTag.src = "../graphics/win.gif";
-            gameState = 1;
+            gameState = 0;
+            messageTag.innerHTML = "Bravo ! Vous avez du en corriger beaucoup des projets !"
+        }
+
+        // Opérations à effectuer quand la partie est terminée
+        if (gameState == 0) {
+            messageTag.style.visibility = "visible";
+            menuTag.style.visibility = "visible";
+            document.getElementById("alphabet").style.visibility =  "hidden";
         }
     }
 
     function onFailure(request) {
-        alert("failure");
+        alert("Erreur avec la requête AJAX : " + request.responseText);
     }
 
 
     function onClick() {
-        if (gameState == -1) {
+        if (gameState == 1) {
             if (this.className !== "clicked") {
                 this.className = "clicked";
                 new simpleAjax("../php/checkWord.php", "post", "letter=" + this.id, onSuccess, onFailure);
@@ -45,6 +67,13 @@ window.onload = function() {
         }
     }
 
+    new simpleAjax("../php/getIndication.php", "post", "", function (request) {
+        document.getElementById("indication").innerHTML = "Indication : " + request.responseText;
+    }, onFailure);
+
+
+
+    // Assigne la fonction onClick à toutes les lettres
     for (let divTag of document.getElementsByClassName("letters")) {
         for (let imgTag of divTag.childNodes) {
             imgTag.onclick = onClick;

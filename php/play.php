@@ -8,7 +8,7 @@ $random_word = explode(",", $words[$rand_index])[0];
 $random_description = explode(",", $words[$rand_index])[1];
 
 $_SESSION["word"] = $random_word;
-$_SESSION["description"] = $random_description;
+$_SESSION["indication"] = $random_description;
 $_SESSION["current_word"] = "-------";
 ?>
 
@@ -25,13 +25,15 @@ $_SESSION["current_word"] = "-------";
 <body>
 <div id="header">
     <h1>Devinez le mot</h1>
-    <h3>Indication : ...</h3>
-    <h1 id="word"><?php
+    <h3 id="indication">Indication : ...</h3>
+    <h1 id="currentword"><?php
         echo($_SESSION["current_word"]);
         ?></h1>
     <div id="potence">
         <img src="../graphics/potence1.png" alt="potence">
     </div>
+
+    <div id="alphabet">
     <?php
     $idx = 1;
     echo("<div class=\"letters\">");
@@ -44,6 +46,12 @@ $_SESSION["current_word"] = "-------";
     }
     echo("</div>");
     ?>
+    </div>
+
+    <div id="endgame">
+    <h2 id="message">Message de fin : </h2>
+    <h2 id="word">????</h2>
+    </div>
     <div id="menu">
         <a class="button" href="../index.html">ACCUEIL</a>
         <a class="button" href="play.php">REJOUER</a>
