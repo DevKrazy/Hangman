@@ -1,7 +1,10 @@
 # Hangman
-[Projet Polytech d'ADW](https://www.youtube.com/watch?v=aADxo9SHy7o&feature=youtu.be)
+Une version web du jeu du pendu. **[Cliquez pour essayer le jeu](https://ndmvisuals.com/hangman/index.html)**
+
+*Projet Web réalisé en PeiP 2 à Polytech Nice-Sophia d'ADW*
 
 ### Consignes
+[Vidéo explicative des consignes](https://www.youtube.com/watch?v=aADxo9SHy7o&feature=youtu.be)
 * La page index.html doit être un minimum jolie
 * Le mot à trouver n'est pas stocké sur la page web
 * Une fois la page de jeu chargée, elle n'est pas rechargée
